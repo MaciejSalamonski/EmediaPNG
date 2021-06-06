@@ -4,6 +4,8 @@ sys.path.append(os.path.abspath("Functions"))
 
 from ImageHandler import IsFilePng
 from ImageHandler import ConvertImage
+from AnalizeIhdrChunk import AnalizeIhdrChunk
+from AnalizePlteChunk import AnalizePlteChunk
 
 imageName = input("Type png file name: ")
 newImageName = input("Type new png file name: ")
@@ -12,6 +14,7 @@ pngState = IsFilePng(imageName)
 
 if pngState == True:
     hexString = ConvertImage(imageName)
-    
+    AnalizeIhdrChunk(hexString)
+    AnalizePlteChunk(hexString, imageName)
 else:
-    print("This is not a png file! Try another file.")
+    print("\nThis is not a png file! Try another file.")
