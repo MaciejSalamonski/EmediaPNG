@@ -1,8 +1,8 @@
 def ReadIdatChunk(hexString, imageName):
     idatHeader = "49444154"
-    positionOfIdatHeader = hexString.find(idatHeader)
+    positionOfIdatChunk = hexString.find(idatHeader)
 
-    if positionOfIdatHeader != -1:
+    if positionOfIdatChunk != -1:
         fourBytesInHex = 8
         oneByteInHex = 2
         hexBase = 16
@@ -12,8 +12,8 @@ def ReadIdatChunk(hexString, imageName):
 
         print("IDAT CHUNK:\n ")
 
-        startOfIdatDataLength = positionOfIdatHeader - fourBytesInHex
-        endOfIdatDataLength = positionOfIdatHeader 
+        startOfIdatDataLength = positionOfIdatChunk - fourBytesInHex
+        endOfIdatDataLength = positionOfIdatChunk 
         hexIdatChunkLength = hexString[startOfIdatDataLength:endOfIdatDataLength]
         decIdatChunkLength = int(hexIdatChunkLength, hexBase)
 
@@ -21,7 +21,7 @@ def ReadIdatChunk(hexString, imageName):
         writeData = str(imageName) + " IDAT chunk data:\n"
         idatChunkDataFile.write(writeData)
 
-        startOfIdatData = positionOfIdatHeader + fourBytesInHex
+        startOfIdatData = positionOfIdatChunk + fourBytesInHex
         while currentIdatDataLength < decIdatChunkLength:
             hexData = hexString[startOfIdatDataLength:(startOfIdatDataLength + oneByteInHex)]
             startOfIdatDataLength += oneByteInHex

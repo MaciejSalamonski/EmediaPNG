@@ -1,8 +1,8 @@
 def FindTimeChunk(hexString):
     timeHeader = "74494d45"
-    positionOfTimeHeader = hexString.find(timeHeader)
+    positionOfTimeChunk = hexString.find(timeHeader)
 
-    if positionOfTimeHeader != -1:
+    if positionOfTimeChunk != -1:
         fourBytesInHex = 8
         twoBytesInHex = 4
         oneByteInHex = 2
@@ -10,7 +10,7 @@ def FindTimeChunk(hexString):
 
         print("tIME CHUNK:\n ")
 
-        startOfYearData = positionOfTimeHeader + fourBytesInHex
+        startOfYearData = positionOfTimeChunk + fourBytesInHex
         endOfYearData = startOfYearData + twoBytesInHex
         hexYear = hexString[startOfYearData:endOfYearData]
         decYear = int(hexYear, hexBase)

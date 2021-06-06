@@ -1,15 +1,15 @@
 def FindIendChunk(hexString):
     iendHeader = "49454e44"
-    positionOfIendHeader = hexString.find(iendHeader)
+    positionOfIendChunk = hexString.find(iendHeader)
 
-    if positionOfIendHeader != -1:
+    if positionOfIendChunk != -1:
         fourBytesInHex = 8
         hexBase = 16
 
         print("IEND CHUNK:\n ")
 
-        startOfIendDataLength = positionOfIendHeader - fourBytesInHex
-        endOfIendDataLength = positionOfIendHeader 
+        startOfIendDataLength = positionOfIendChunk - fourBytesInHex
+        endOfIendDataLength = positionOfIendChunk 
         hexIendChunkLength = hexString[startOfIendDataLength:endOfIendDataLength]
         decIendChunkLength = int(hexIendChunkLength, hexBase)
         iendChunkLengthOutput = "Iend chunk length: "\
