@@ -4,6 +4,8 @@ sys.path.append(os.path.abspath("Functions"))
 
 from ImageHandler import IsFilePng
 from ImageHandler import ConvertImage
+from ImageHandler import SavePngImage
+from ImageHandler import ShowImage
 from AnalizeIhdrChunk import AnalizeIhdrChunk
 from AnalizePlteChunk import AnalizePlteChunk
 from ReadIdatChunk import ReadIdatChunk
@@ -28,5 +30,8 @@ if pngState == True:
     FindTimeChunk(hexString)
     FindGamaChunk(hexString)
     FindTextChunk(hexString)
+
+    SavePngImage(hexString, newImageName)
+    ShowImage(newImageName)
 else:
     print("\nThis is not a png file! Try another file.")
