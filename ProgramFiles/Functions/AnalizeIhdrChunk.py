@@ -30,56 +30,52 @@ def AnalizeIhdrChunk(hexString):
         fourBytesInHex = 8
         hexBase = 16
 
-        print("\nIHDR CHUNK:\n ")
+        print("\nIHDR CHUNK: ")
 
         startOfWidthPosition = posistionOfIhdrChunk + fourBytesInHex
         endOfWidthPosition = startOfWidthPosition + fourBytesInHex
         hexWidth = hexString[startOfWidthPosition:endOfWidthPosition]
         decWidth = int(hexWidth, hexBase)
-        widthOutput = "Width: " + str(decWidth)
-        print(widthOutput)
 
         startOfHeightPosition = endOfWidthPosition
         endOfHeightPosition = startOfHeightPosition + fourBytesInHex
         hexHeight = hexString[startOfHeightPosition:endOfHeightPosition]
         decHeight = int(hexHeight, hexBase)
-        heightOutput = "Height: " + str(decHeight)
-        print(heightOutput)
 
         startOfBitDepth = endOfHeightPosition
         endOfBitDepth = startOfBitDepth + oneByteInHex
         hexBitDepth = hexString[startOfBitDepth:endOfBitDepth]
         decBitDepth = int(hexBitDepth, hexBase)
-        bitDepthOutput = "Bit depth: " + str(decBitDepth)
-        print(bitDepthOutput)
 
         startOfColorType = endOfBitDepth
         endOfColorType = startOfColorType + oneByteInHex
         hexColorType = hexString[startOfColorType:endOfColorType]
         decColorType = int(hexColorType, hexBase)
-        colorTypeOutput = "Color type: " + str(ColorType(decColorType).name)
-        print(colorTypeOutput)
 
         startOfCompressionMethod = endOfColorType
         endOfCompressionMethod = startOfCompressionMethod + oneByteInHex
         hexCompressionMethod = hexString[startOfCompressionMethod:endOfCompressionMethod]
         decCompressionMethod = int(hexCompressionMethod, hexBase)
-        compressionMethodOutput = "Comperssion method: " + str(CompressionMethod(decCompressionMethod).name)
-        print(compressionMethodOutput)
 
         startOfFilterMethod = endOfCompressionMethod
         endOfFilterMethod = startOfFilterMethod + oneByteInHex
         hexFilterMethod = hexString[startOfFilterMethod:endOfFilterMethod]
         decFilterMethod = int(hexFilterMethod, hexBase)
-        filterMethodOutput = "Filther method: " + str(FilterMethod(decFilterMethod).name)
-        print(filterMethodOutput)
 
         startOfInterlaceMethod = endOfFilterMethod
         endOfInterlaceMethod = startOfInterlaceMethod + oneByteInHex
         hexInterlaceMethod = hexString[startOfInterlaceMethod:endOfInterlaceMethod]
         decInterlaceMethod = int(hexInterlaceMethod, hexBase)
-        interlaceMethodOutput = "Interlace method: " + str(InterlaceMethod(decInterlaceMethod).name)
-        print(interlaceMethodOutput)
+    
+
+        dataOutput = "\nWidth: " + str(decWidth)\
+                     + "\nHeight: " + str(decHeight)\
+                     + "\nBit depth: " + str(decBitDepth)\
+                     + "\nColor type: " + str(ColorType(decColorType).name)\
+                     + "\nComperssion method: " + str(CompressionMethod(decCompressionMethod).name)\
+                     + "\nFilther method: " + str(FilterMethod(decFilterMethod).name)\
+                     + "\nInterlace method: " + str(InterlaceMethod(decInterlaceMethod).name)
+        print(dataOutput)
     
     else:
         print("\nIHDR chunk not found.")

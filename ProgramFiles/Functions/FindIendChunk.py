@@ -1,4 +1,4 @@
-def FindIend(hexString):
+def FindIendChunk(hexString):
     iendHeader = "49454e44"
     positionOfIendHeader = hexString.find(iendHeader)
 
