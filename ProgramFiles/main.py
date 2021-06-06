@@ -7,6 +7,7 @@ from ImageHandler import ConvertImage
 from AnalizeIhdrChunk import AnalizeIhdrChunk
 from AnalizePlteChunk import AnalizePlteChunk
 from ReadIdatChunk import ReadIdatChunk
+from FindIend import FindIend
 
 imageName = input("Type png file name: ")
 newImageName = input("Type new png file name: ")
@@ -18,5 +19,6 @@ if pngState == True:
     AnalizeIhdrChunk(hexString)
     AnalizePlteChunk(hexString, imageName)
     ReadIdatChunk(hexString, imageName)
+    FindIend(hexString)
 else:
     print("\nThis is not a png file! Try another file.")
