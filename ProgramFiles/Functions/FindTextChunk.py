@@ -7,6 +7,7 @@ def FindTextChunk(hexString):
     if positionOfTextChunk != -1:
         fourBytesInHex = 8
         hexBase = 16
+        twoCharactersInHex = 2
         hexFlag = 'hex'
         decodeFlag = 'utf-8'
 
@@ -18,7 +19,7 @@ def FindTextChunk(hexString):
         decTextDataLength = int(hexTextDataLength, hexBase)
 
         startOfTextData = positionOfTextChunk + fourBytesInHex
-        endOfTextData = startOfTextData + decTextDataLength * 2
+        endOfTextData = startOfTextData + decTextDataLength * twoCharactersInHex
         textData = codecs.decode(hexString[startOfTextData:endOfTextData], hexFlag).decode(decodeFlag)
         dataOutput = "tEXt data: " + str(textData)
         print(dataOutput)

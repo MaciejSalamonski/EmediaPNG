@@ -13,6 +13,7 @@ from FindIendChunk import FindIendChunk
 from FindTimeChunk import FindTimeChunk
 from FindGamaChunk import FindGamaChunk
 from FindTextChunk import FindTextChunk
+from RemoveAncillaryChunks import RemoveAncillaryChunks
 
 imageName = input("Type png file name: ")
 newImageName = input("Type new png file name: ")
@@ -30,6 +31,8 @@ if pngState == True:
     FindTimeChunk(hexString)
     FindGamaChunk(hexString)
     FindTextChunk(hexString)
+
+    hexString = RemoveAncillaryChunks(hexString)
 
     SavePngImage(hexString, newImageName)
     ShowImage(newImageName)
