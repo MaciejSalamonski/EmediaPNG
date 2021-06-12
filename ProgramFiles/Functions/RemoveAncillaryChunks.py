@@ -24,7 +24,7 @@ def RemoveAncillaryChunks(hexString: str):
     ztxtHeader = "7a545874"
 
     constChunkLength = constChunkLengthInBytes * twoCharsForOneByteInHexString
-    chunksHeaders = [bkgdHeader, chrmHeader, dsigHeader, exifHeader, gamaHeader,
+    chunksHeaders = [bkgdHeader, dsigHeader, exifHeader, gamaHeader,
                      histHeader, iccpHeader, itxtHeader, physHeader, sbitHeader,
                      spltHeader, srgbHeader, sterHeader, textHeader, timeHeader,
                      trnsHeader, ztxtHeader]
@@ -37,7 +37,7 @@ def RemoveAncillaryChunks(hexString: str):
             endOfChunkDataLength = positionOfAncillaryChunk
             hexChunkDataLength = hexString[startOfChunkDataLength:endOfChunkDataLength]
             decChunkDataLength = int(hexChunkDataLength, hexBase)
-            chunkDataLength = decChunkDataLength * twoCharsForoneByteInHexString
+            chunkDataLength = decChunkDataLength * twoCharsForOneByteInHexString
             hexStringFirstPart = hexString[startPosition:startOfChunkDataLength]
             hexStringSecondPart = hexString[(startOfChunkDataLength \
                                              + chunkDataLength \

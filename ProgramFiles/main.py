@@ -14,6 +14,7 @@ from FindTimeChunk import FindTimeChunk
 from FindGamaChunk import FindGamaChunk
 from FindTextChunk import FindTextChunk
 from RemoveAncillaryChunks import RemoveAncillaryChunks
+from FindExifChunk import findEXIF
 
 imageName = input("Type png file name: ")
 newImageName = input("Type new png file name: ")
@@ -33,8 +34,8 @@ if pngState == True:
     FindTextChunk(hexString)
 
     hexString = RemoveAncillaryChunks(hexString)
-
     SavePngImage(hexString, newImageName)
+    findEXIF(newImageName)
     ShowImage(newImageName)
 else:
     print("\nThis is not a png file! Try another file.")
