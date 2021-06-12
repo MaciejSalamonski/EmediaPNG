@@ -15,6 +15,7 @@ from FindGamaChunk import FindGamaChunk
 from FindTextChunk import FindTextChunk
 from RemoveAncillaryChunks import RemoveAncillaryChunks
 from FindExifChunk import findEXIF
+from FourierTransform import FourierTransform
 
 imageName = input("Type png file name: ")
 newImageName = input("Type new png file name: ")
@@ -37,5 +38,6 @@ if pngState == True:
     SavePngImage(hexString, newImageName)
     findEXIF(newImageName)
     ShowImage(newImageName)
+    FourierTransform(newImageName)
 else:
     print("\nThis is not a png file! Try another file.")
