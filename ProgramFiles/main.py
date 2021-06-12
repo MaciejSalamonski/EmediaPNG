@@ -1,6 +1,8 @@
 import sys
 import os
-sys.path.append(os.path.abspath("Functions"))
+sys.path.append(os.path.abspath("Packages/ChunksPackage"))
+sys.path.append(os.path.abspath("Packages/FourierTransformPackage"))
+sys.path.append(os.path.abspath("Packages/ImageHandlerPackage"))
 
 from ImageHandler import IsFilePng
 from ImageHandler import ConvertImage
