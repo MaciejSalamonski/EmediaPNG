@@ -3,14 +3,14 @@ def ReadIdatChunk(hexString, imageName):
     positionOfIdatChunk = hexString.find(idatHeader)
 
     if positionOfIdatChunk != -1:
+        currentIdatDataLength = 0
         fourBytesInHex = 8
-        oneByteInHex = 2
         hexBase = 16
         idatChunkDataPath = '../ChunksData/idatData.txt'
+        oneByteInHex = 2
         writeFlag = 'w'
-        currentIdatDataLength = 0
 
-        print("IDAT CHUNK:\n ")
+        print("\n##################################### IDAT CHUNK ######################################")
 
         startOfIdatDataLength = positionOfIdatChunk - fourBytesInHex
         endOfIdatDataLength = positionOfIdatChunk 
@@ -32,7 +32,9 @@ def ReadIdatChunk(hexString, imageName):
             currentIdatDataLength += 1
         
         idatChunkDataFile.close()
-        print("IDAT data saved in ChunksData directory - file idatData.txt\n")
-    
+        print("\nIDAT data saved in ChunksData directory - file idatData.txt")
+        print("\n#######################################################################################\n")
     else:
+        print("\n##################################### IDAT CHUNK ######################################")
         print("\nIDAT chunk not found.")
+        print("\n#######################################################################################\n")

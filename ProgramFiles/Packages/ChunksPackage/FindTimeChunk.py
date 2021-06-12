@@ -4,11 +4,11 @@ def FindTimeChunk(hexString):
 
     if positionOfTimeChunk != -1:
         fourBytesInHex = 8
-        twoBytesInHex = 4
-        oneByteInHex = 2
         hexBase = 16
+        oneByteInHex = 2
+        twoBytesInHex = 4
 
-        print("tIME CHUNK:\n ")
+        print("\n##################################### tIME CHUNK ######################################")
 
         startOfYearData = positionOfTimeChunk + fourBytesInHex
         endOfYearData = startOfYearData + twoBytesInHex
@@ -40,13 +40,15 @@ def FindTimeChunk(hexString):
         hexSecond = hexString[startOfSecondData:endOfSecondData]
         decSecond = int(hexSecond, hexBase)
 
-        dataOutput = "Year: " + str(decYear)\
+        dataOutput = "\nYear: " + str(decYear)\
                      + "\nMonth: " + str(decMonth)\
                      + "\nDay: " + str(decDay)\
                      + "\nHour:" + str(decHour)\
                      + "\nMinute: " + str(decMinute)\
                      + "\nSecond: " + str(decSecond)
         print(dataOutput)
-
+        print("\n#######################################################################################\n")
     else:
+        print("\n##################################### tIME CHUNK ######################################")
         print("\ntIME chunk not found.")
+        print("\n#######################################################################################\n")

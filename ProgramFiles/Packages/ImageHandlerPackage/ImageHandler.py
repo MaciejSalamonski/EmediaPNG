@@ -1,12 +1,12 @@
 import cv2
 
 def IsFilePng(imageName):
-    startOfFourBytesPngHeader = 0
     endOfFOurBytesPngHeader = 16
     pngHeader = "89504e470d0a1a0a"
-    sampleImagesPath = '../SampleImages/{}'
     readBinaryFlag = 'rb'
-
+    sampleImagesPath = '../SampleImages/{}'
+    startOfFourBytesPngHeader = 0
+    
     with open(sampleImagesPath.format(imageName), readBinaryFlag) as imageName:
         hexString = imageName.read().hex()
     if hexString[startOfFourBytesPngHeader:endOfFOurBytesPngHeader] == pngHeader:
@@ -15,17 +15,17 @@ def IsFilePng(imageName):
         return False
 
 def ConvertImage(imageName):
-    sampleImagesPath = '../SampleImages/{}'
     readBinaryFlag = 'rb'
+    sampleImagesPath = '../SampleImages/{}'
 
     with open(sampleImagesPath.format(imageName), readBinaryFlag) as imageName:
         return imageName.read().hex()
 
 def SavePngImage(hexString: str, newImageName: str):
+    filePath = '../NewImages/' + newImageName
     writeAndBinaryFlag = 'wb'
 
     data = bytes.fromhex(hexString)
-    filePath = '../NewImages/' + newImageName
 
     with open(filePath, writeAndBinaryFlag) as newImage:
         newImage.write(data)

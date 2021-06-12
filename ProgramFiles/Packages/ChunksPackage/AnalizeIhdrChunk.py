@@ -26,11 +26,11 @@ def AnalizeIhdrChunk(hexString):
     posistionOfIhdrChunk = hexString.find(IhdrHeader)
 
     if posistionOfIhdrChunk != -1:
-        oneByteInHex = 2
         fourBytesInHex = 8
         hexBase = 16
+        oneByteInHex = 2
 
-        print("\nIHDR CHUNK: ")
+        print("\n##################################### IHDR CHUNK ######################################")
 
         startOfWidthPosition = posistionOfIhdrChunk + fourBytesInHex
         endOfWidthPosition = startOfWidthPosition + fourBytesInHex
@@ -76,6 +76,9 @@ def AnalizeIhdrChunk(hexString):
                      + "\nFilther method: " + str(FilterMethod(decFilterMethod).name)\
                      + "\nInterlace method: " + str(InterlaceMethod(decInterlaceMethod).name)
         print(dataOutput)
-    
+
+        print("\n#######################################################################################\n")
     else:
+        print("\n##################################### IHDR CHUNK ######################################")
         print("\nIHDR chunk not found.")
+        print("\n#######################################################################################\n")

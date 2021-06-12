@@ -1,17 +1,17 @@
 def AnalizePlteChunk(hexString, imageName):
-    PlteHeader = "504c5445"
-    positionOfPlteChunk = hexString.find(PlteHeader)
+    plteHeader = "504c5445"
+    positionOfPlteChunk = hexString.find(plteHeader)
 
     if positionOfPlteChunk != -1:
+        chunkDivisiedByThree = 3
         fourBytesInHex = 8
         hexBase = 16
+        oneByteInHex = 2
+        paleteEntryCounter = 0
         plteChunkDataPath = '../ChunksData/plteData.txt'
         writeFlag = 'w'
-        paleteEntryCounter = 0
-        chunkDivisiedByThree = 3
-        oneByteInHex = 2
 
-        print("\nPLTE CHUNK:\n ")
+        print("\n##################################### PLTE CHUNK ######################################")
 
         startOfPlteDataLength = positionOfPlteChunk - fourBytesInHex
         endOfPlteDataLength = positionOfPlteChunk
@@ -19,7 +19,7 @@ def AnalizePlteChunk(hexString, imageName):
         decPlteChunkLength = int(hexPlteChunkLength, hexBase)
 
         plteChunkDataFile = open(plteChunkDataPath, writeFlag)
-        writeData = str(imageName) + " PLTE chunk data:\n"
+        writeData = str(imageName) + "PLTE chunk data:\n"
         plteChunkDataFile.write(writeData) 
 
         colorsPosition = positionOfPlteChunk + fourBytesInHex
@@ -48,6 +48,9 @@ def AnalizePlteChunk(hexString, imageName):
             paleteEntryCounter += 1
 
         plteChunkDataFile.close()
-        print("Entires saved in ChunksData directory - file plteData.txt\n")
+        print("\nPLTE data saved in ChunksData directory - file plteData.txt")
+        print("\n#######################################################################################\n")
     else:
+        print("\n##################################### PLTE CHUNK ######################################")
         print("\nPLTE chunk not found.")
+        print("\n#######################################################################################\n")

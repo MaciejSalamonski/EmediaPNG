@@ -6,15 +6,17 @@ def FindIendChunk(hexString):
         fourBytesInHex = 8
         hexBase = 16
 
-        print("IEND CHUNK:\n ")
+        print("\n##################################### IEND CHUNK ######################################")
 
         startOfIendDataLength = positionOfIendChunk - fourBytesInHex
         endOfIendDataLength = positionOfIendChunk 
         hexIendChunkLength = hexString[startOfIendDataLength:endOfIendDataLength]
         decIendChunkLength = int(hexIendChunkLength, hexBase)
-        iendChunkLengthOutput = "Iend chunk length: "\
-                                + str(decIendChunkLength)\
-                                + '\n'
+        iendChunkLengthOutput = "\nIEND chunk length: "\
+                                + str(decIendChunkLength)
         print(iendChunkLengthOutput)
+        print("\n#######################################################################################\n")
     else:
+        print("\n##################################### IEND CHUNK ######################################")
         print("\nIEND chunk not found.")
+        print("\n#######################################################################################\n")

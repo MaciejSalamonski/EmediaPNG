@@ -6,14 +6,17 @@ def FindGamaChunk(hexString):
         fourBytesInHex = 8
         hexBase = 16
 
-        print("\ngAMA CHUNK: ")
+        print("\n##################################### gAMA CHUNK ######################################")
 
         startOfGamaData = positionOfGamaChunk + fourBytesInHex
         endOfGamaData = startOfGamaData + fourBytesInHex
         hexGama = hexString[startOfGamaData:endOfGamaData]
         decGama = int(hexGama, hexBase)
 
-        dataOutput = "\nImage gama: " + str(decGama)
+        dataOutput = "\nImage gAMA: " + str(decGama)
         print(dataOutput)
+        print("\n#######################################################################################\n")
     else:
+        print("\n##################################### gAMA CHUNK ######################################")
         print("\ngAMA chunk not found.")
+        print("\n#######################################################################################\n")

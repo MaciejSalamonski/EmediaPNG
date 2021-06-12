@@ -44,4 +44,8 @@ def RemoveAncillaryChunks(hexString: str):
                                              + constChunkLength):]
             hexString = hexStringFirstPart + hexStringSecondPart
 
+    print("\n################################## ANCILLARY CHUNKS ###################################")
+    print("\n Ancillary chunks - deleted")
+    print("\n#######################################################################################\n")
+
     return hexString

@@ -5,13 +5,13 @@ def FindTextChunk(hexString):
     positionOfTextChunk = hexString.find(textHeader)
 
     if positionOfTextChunk != -1:
+        decodeFlag = 'utf-8'
         fourBytesInHex = 8
         hexBase = 16
-        twoCharactersInHex = 2
         hexFlag = 'hex'
-        decodeFlag = 'utf-8'
+        twoCharactersInHex = 2
 
-        print("\ntEXt CHUNK:\n ")
+        print("\n##################################### tEXt CHUNK ######################################")
 
         startOfTextDataLength = positionOfTextChunk - fourBytesInHex
         endOfTextDataLength = positionOfTextChunk
@@ -21,7 +21,10 @@ def FindTextChunk(hexString):
         startOfTextData = positionOfTextChunk + fourBytesInHex
         endOfTextData = startOfTextData + decTextDataLength * twoCharactersInHex
         textData = codecs.decode(hexString[startOfTextData:endOfTextData], hexFlag).decode(decodeFlag)
-        dataOutput = "tEXt data: " + str(textData)
+        dataOutput = "\ntEXt data: " + str(textData)
         print(dataOutput)
+        print("\n#######################################################################################\n")
     else:
+        print("\n##################################### tEXt CHUNK ######################################")
         print("\ntEXt chunk not found.")
+        print("\n#######################################################################################\n")
