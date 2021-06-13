@@ -11,6 +11,7 @@ def FourierTransform(imageName):
 
     discreteFourierTransform = numpy.fft.fft2(image)
     shiftedZeroFrequencyComponentToSpectrumCenter = numpy.fft.fftshift(discreteFourierTransform)
+    
     magnitudeSpectrum = logarithmConstant * numpy.log(numpy.abs(shiftedZeroFrequencyComponentToSpectrumCenter))
     phaseSpectrum = numpy.angle(shiftedZeroFrequencyComponentToSpectrumCenter)
 
