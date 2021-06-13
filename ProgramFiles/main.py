@@ -27,6 +27,7 @@ pngState = IsFilePng(imageName)
 if pngState == True:
 
     hexString = ConvertImage(imageName)
+    
     AnalizeIhdrChunk(hexString)
     AnalizePlteChunk(hexString, imageName)
     ReadIdatChunk(hexString, imageName)

@@ -9,7 +9,7 @@ def FindTextChunk(hexString):
         fourBytesInHex = 8
         hexBase = 16
         hexFlag = 'hex'
-        twoCharactersInHex = 2
+        twoCharsForOneByteInHexString = 2
 
         print("\n##################################### tEXt CHUNK ######################################")
 
@@ -19,8 +19,9 @@ def FindTextChunk(hexString):
         decTextDataLength = int(hexTextDataLength, hexBase)
 
         startOfTextData = positionOfTextChunk + fourBytesInHex
-        endOfTextData = startOfTextData + decTextDataLength * twoCharactersInHex
+        endOfTextData = startOfTextData + decTextDataLength * twoCharsForOneByteInHexString
         textData = codecs.decode(hexString[startOfTextData:endOfTextData], hexFlag).decode(decodeFlag)
+
         dataOutput = "\ntEXt data: " + str(textData)
         print(dataOutput)
         print("\n#######################################################################################\n")
