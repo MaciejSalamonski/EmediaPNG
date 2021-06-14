@@ -6,7 +6,7 @@ sys.path.append(os.path.abspath("Packages/ImageHandlerPackage"))
 
 from AnalizeIhdrChunk import AnalizeIhdrChunk
 from AnalizePlteChunk import AnalizePlteChunk
-from FindExifChunk import FindExifChunk
+from FindExif import FindExif
 from FindGamaChunk import FindGamaChunk
 from FindIendChunk import FindIendChunk
 from FindTextChunk import FindTextChunk
@@ -40,7 +40,7 @@ if pngState == True:
     hexString = RemoveAncillaryChunks(hexString)
 
     SavePngImage(hexString, newImageName)
-    FindExifChunk(newImageName)
+    FindExif(newImageName)
     ShowImage(newImageName)
 
     FourierTransform(newImageName)
